@@ -31,6 +31,16 @@ int stillRunning(){
     return 0;
 }
 
+int deadlock() {
+    for(int i = 0; i < 5; i++){
+        if(running[i] == 1){
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
 void bankers(){
     for (int i =0; i < 5; i++) {
         running[i] = 0;
@@ -51,12 +61,7 @@ void bankers(){
                 printf("\n");
             }
         }
-        int flag = 0;
-        for(int i = 0; i < 5; i++){
-            if(running[i] == 1){
-                flag = 1;
-            }
-        }
+        int flag = deadlock();
         if(flag == 0){
             printf("No Safe Sequence Possible!");
             break;
