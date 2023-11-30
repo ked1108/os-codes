@@ -10,7 +10,7 @@
 #define HUNGRY 1
 #define EATING 0
 
-int state[4];
+int state[5];
 
 sem_t S[N];
 
